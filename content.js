@@ -6,16 +6,16 @@ spellChecker = (text) => {
         .replace("heldp", "help");
 };
 
-let inputArray = [...document.getElementsByTagName("input")].filter(obj => obj.type === "search");
 
-let content = [...document.querySelectorAll('[contenteditable=true]')];
+let inputArray = [...document.getElementsByTagName("input")];
+
+let content = [...document.getElementsByTagName("*")].filter(obj => obj.contenteditable === "true");
 
 console.log("Content", content);
-console.log(document.querySelectorAll('[contenteditable]'));
 
-for (obj of inputArray) {
-    obj.onkeypress = (e) => {
-        if (e.key === " ") obj.value = spellChecker(obj.value)
-    };
-}
+inputArray.map(obj => {
+    return obj.onkeypress = (e) => {
+                if (e.key === " ") obj.value = spellChecker(obj.value)
+            };
+})
 
