@@ -6,18 +6,13 @@ spellChecker = (text) => {
         .replace("heldp", "help");
 };
 
-
-let inputArray = [...document.getElementsByTagName("input")];
-let iFrame = [...document.getElementsByTagName("iframe")];
-
-// let content = [...document.getElementsByTagName("*")];
-// console.log(content[0])
-
-console.log("iFrame", iFrame);
-
-inputArray.map(obj => {
+let inputTagsArray = [...document.getElementsByTagName("input")];
+inputTagsArray.map(obj => {
     return obj.onkeypress = (e) => {
-                if (e.key === " ") obj.value = spellChecker(obj.value)
-            };
+        if (e.key === " ") obj.value = spellChecker(obj.value)
+    };
 })
 
+let iFrames = [...document.getElementsByTagName("iframe")].map(obj => obj.contentWindow.document.querySelectorAll('[contenteditable=true]'));
+console.log("iFrames", iFrames);
+// CORS violation
