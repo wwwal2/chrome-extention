@@ -1,0 +1,12 @@
+{
+    "name": "test exsitek",
+    "version": "1.0",
+    "description": "Foo => Bar",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ]
+  }
