@@ -8,10 +8,12 @@ spellChecker = (text) => {
 
 
 let inputArray = [...document.getElementsByTagName("input")];
+let iFrame = [...document.getElementsByTagName("iframe")];
 
-let content = [...document.getElementsByTagName("*")].filter(obj => obj.contenteditable === "true");
+// let content = [...document.getElementsByTagName("*")];
+// console.log(content[0])
 
-console.log("Content", content);
+console.log("iFrame", iFrame);
 
 inputArray.map(obj => {
     return obj.onkeypress = (e) => {
